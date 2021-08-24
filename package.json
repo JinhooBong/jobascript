@@ -1,0 +1,44 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "HR RFP 54 MVP project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "nodemon server/index.js",
+    "react:dev": "webpack --config ./webpack.config.js --mode development -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JinhooBong/jobascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JinhooBong/jobascript/issues"
+  },
+  "homepage": "https://github.com/JinhooBong/jobascript#readme",
+  "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.51.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^4.8.0"
+  }
+}
