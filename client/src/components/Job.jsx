@@ -7,8 +7,8 @@ const Job = ({ job_title, companyName, location, description, link}) => {
       <p>{job_title}</p>
       <p>{companyName}</p>
       <p>{location}</p>
-      <p>{description.substring(0, 100)}</p>
-      <p>{link}</p>
+      <p>{description.split('.')[0]}{description.split('.')[1]}</p>
+      <a href={link}>More Info</a>
     </div>
   )
 }
