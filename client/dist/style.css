@@ -3,13 +3,16 @@
 body {
   font-family: 'Open Sans';
   font-weight: 400;
+  background-color: #F7F6EF;
+  margin: 0;
+  padding: 0;
 }
 
 .title {
   text-align: center;
   font-size: 3rem;
   font-family: 'Open Sans';
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
