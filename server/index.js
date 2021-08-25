@@ -18,9 +18,16 @@ app.get('/', (req, res) => {
 
 
 // this will get all of the current jobs applied to
-// app.get('/joblist', (req, res) => {
+app.get('/joblist', (req, res) => {
+  console.log('hellooo');
+  db.collection('jobs').find().toArray()
+    .then((result) => {
+      console.log(result);
+    })
 
-// });
+    // console.log(x);
+  // res.send(db.find());
+});
 
 // this will post to the db a new job application
 app.post('/joblist', (req, res) => {
