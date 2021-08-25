@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/jobascript');
 
-const db = mongoose.connection;
+mongoose
+  .connect('mongodb://127.0.0.1:27017/jobascript', { useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log('Database has been connected');
+  })
+  .catch((err) => {
+    console.log('Error:', err);
+  });
 
-db.on('error', () => {
-  console.log('Mongoose connection error');
-});
-
-db.once('open', () => {
-  console.log('mongoose connected successfully');
-});
-
-module.exports = db;
+module.exports = mongoose.connection;

@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import ApplicationForm from './ApplicationForm.jsx';
 
-const JobListDiv = styled.div`
-  background-color:
+// const JobListDiv = styled.div`
+//   background-color:
 
-`
+// `
 
 
 const JobsList = () => {
