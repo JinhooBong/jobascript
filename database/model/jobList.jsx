@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const jobApplicationSchema = mongoose.schema({
+const jobApplicationSchema = mongoose.Schema({
   job_title: String,
   companyName: String,
   location: String,
