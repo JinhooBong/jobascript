@@ -17,7 +17,7 @@ const ApplicationForm = () => {
   const [location, setLocation] = useState('');
 
   function storeJobData() {
-    let date = new Date().toLocaleString();
+    let date = new Date().toDateString();
     axios.post('/joblist', {
       jobTitle: jobTitle,
       companyName: companyName,

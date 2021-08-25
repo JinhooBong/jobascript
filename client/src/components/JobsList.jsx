@@ -17,7 +17,7 @@ const JobsList = () => {
   function getJobApplied() {
     axios.get('/joblist')
       .then((data) => {
-        console.log(data);
+        console.log(data.data);
       })
       .catch((err) => {
         console.log('err', err);

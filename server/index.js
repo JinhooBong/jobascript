@@ -22,11 +22,11 @@ app.get('/joblist', (req, res) => {
   console.log('hellooo');
   db.collection('jobs').find().toArray()
     .then((result) => {
-      console.log(result);
+      res.send(result);
     })
-
-    // console.log(x);
-  // res.send(db.find());
+    .catch((err) => {
+      res.send(err);
+    })
 });
 
 // this will post to the db a new job application
