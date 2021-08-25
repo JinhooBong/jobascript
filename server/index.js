@@ -21,9 +21,10 @@ app.get('/', (req, res) => {
 // });
 
 // this will post to the db a new job application
-// app.post('/joblist', (req, res) => {
-
-// });
+app.post('/joblist', (req, res) => {
+  console.log('message received', req.body);
+  res.send('success!');
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

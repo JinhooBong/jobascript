@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FormControl, FormLabel, Input, FormErrorMessage, FormHelperText, Button } from '@chakra-ui/react';
 
+const axios = require('axios');
+
 const FormDiv=styled.div`
   text-align: center;
   display: flex;
@@ -15,7 +17,19 @@ const ApplicationForm = () => {
   const [location, setLocation] = useState('');
 
   function storeJobData() {
-    console.log('this is jobtitle', jobTitle);
+    let date = new Date().toLocaleString();
+    axios.post('/joblist', {
+      jobTitle: jobTitle,
+      companyName: companyName,
+      location: location,
+      date_added: date
+    })
+      .then((successMsg) => {
+        console.log('success', successMsg);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      })
   }
 
   function handleJobTitle(e) {
