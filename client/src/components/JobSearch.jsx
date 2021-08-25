@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import JobsModal from './JobsModal.jsx';
+
 const axios = require('axios');
 
 // const JobSearch = styled.div`
@@ -7,6 +9,8 @@ const axios = require('axios');
 // `
 
 const JobSearch = () => {
+
+  const [jobs, setJobs] = useState([]);
 
   function clickSearch() {
     const options = {
@@ -21,7 +25,7 @@ const JobSearch = () => {
 
     axios.request(options)
       .then((data) => {
-        console.log('success', data);
+        setJobs(data.data['jobs']);
       })
       .catch((err) => {
         console.log('err', err);
@@ -32,6 +36,7 @@ const JobSearch = () => {
     <div>
       <h1>Job Search Section</h1>
       <button onClick={() => clickSearch()}>Search</button>
+      <JobsModal jobs={jobs}/>
     </div>
   )
 
