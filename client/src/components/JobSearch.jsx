@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import JobsModal from './JobsModal.jsx';
 
+import { Flex, Button } from '@chakra-ui/react';
+
 const axios = require('axios');
 
-// const JobSearch = styled.div`
-
-// `
 
 const JobSearch = () => {
 
@@ -33,11 +32,17 @@ const JobSearch = () => {
   }
 
   return (
-    <div>
-      <h1>Job Search Section</h1>
-      <button onClick={() => clickSearch()}>Search</button>
+    <Flex>
+      <Button
+        onClick={() => clickSearch()}
+        size="md"
+        height="48px"
+        width="200px"
+      >
+        Search Jobs
+      </Button>
       <JobsModal jobs={jobs}/>
-    </div>
+    </Flex>
   )
 
 }

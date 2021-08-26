@@ -33,12 +33,13 @@ const JobsList = () => {
   return (
     <div>
       <h1>Job List Section</h1>
+      <ApplicationForm refreshFn={getJobApplied}/>
       <ul>
         {jobApplicationList.map((item, i) => {
           return <JobsApplied job={item} key={i} />
         })}
       </ul>
-      <ApplicationForm />
+
     </div>
   )
 }

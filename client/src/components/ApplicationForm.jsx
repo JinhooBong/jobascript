@@ -10,7 +10,7 @@ const FormDiv=styled.div`
   justify-content: center;
 `
 
-const ApplicationForm = () => {
+const ApplicationForm = ({ refreshFn }) => {
 
   const [jobTitle, setJobTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -26,6 +26,7 @@ const ApplicationForm = () => {
     })
       .then((successMsg) => {
         console.log('success', successMsg);
+        refreshFn();
       })
       .catch((err) => {
         console.log('err', err);
