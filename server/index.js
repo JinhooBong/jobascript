@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 
-const addJob = require('../database/controller/jobList.jsx');
+const job = require('../database/controller/jobList.jsx');
 
 const app = express();
 const PORT = 3000;
@@ -31,12 +31,25 @@ app.get('/joblist', (req, res) => {
 // this will post to the db a new job application
 app.post('/joblist', (req, res) => {
   console.log('message received', req.body);
-  let response = addJob(req.body);
+  let response = job.addJob(req.body);
   res.send(response);
 });
 
 app.delete('/joblist', (req, res) => {
-  res.send('Delete!');
+  // console.log(req.body);
+  let deleteItem = req.body;
+  db.collection('jobs').deleteOne({
+    job_title: deleteItem.jobtitle,
+    companyName: deleteItem.company,
+    location: deleteItem.location
+  })
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+
 })
 
 app.listen(PORT, () => {

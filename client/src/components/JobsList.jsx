@@ -25,10 +25,12 @@ const JobsList = () => {
       });
   }
 
-  function deleteJob() {
-    axios.delete('/jobList')
+  function deleteJob(item) {
+    console.log(item);
+    axios.delete('/jobList', {data: item})
       .then((data) => {
         console.log(data);
+        getJobApplied();
       })
       .catch((err) => {
         console.log('err', err);
