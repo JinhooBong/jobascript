@@ -35,6 +35,10 @@ app.post('/joblist', (req, res) => {
   res.send(response);
 });
 
+app.delete('/joblist', (req, res) => {
+  res.send('Delete!');
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });

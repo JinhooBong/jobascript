@@ -25,6 +25,16 @@ const JobsList = () => {
       });
   }
 
+  function deleteJob() {
+    axios.delete('/jobList')
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      })
+  }
+
   useEffect(() => {
     getJobApplied();
   }, []);
@@ -35,7 +45,7 @@ const JobsList = () => {
       <ApplicationForm refreshFn={getJobApplied}/>
       <ul>
         {jobApplicationList.map((item, i) => {
-          return <JobsApplied job={item} key={i} />
+          return <JobsApplied job={item} key={i} deleteFn={deleteJob} />
         })}
       </ul>
     </Container>
