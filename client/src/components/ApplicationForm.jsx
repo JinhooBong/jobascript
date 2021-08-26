@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FormControl, FormLabel, Input, FormErrorMessage, FormHelperText, Button } from '@chakra-ui/react';
+import {
+  Container,
+  FormControl,
+  FormLabel,
+  Input,
+  FormErrorMessage,
+  FormHelperText,
+  Button
+} from '@chakra-ui/react';
 
 const axios = require('axios');
-
-const FormDiv=styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-`
 
 const ApplicationForm = ({ refreshFn }) => {
 
@@ -46,17 +48,17 @@ const ApplicationForm = ({ refreshFn }) => {
   }
 
   return (
-    <FormDiv>
-      <FormControl display="flex" isRequired>
-        <FormLabel m="5">Job Title:</FormLabel>
+    <Container w="100vw" maxW="100vw" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <FormControl display="flex" flexDirection="row" maxW="90vw" isRequired>
+        <FormLabel m="2" display="flex" justifyContent="center" alignItems="center">Job Title:</FormLabel>
         <Input m="3" type="text" placeholder="Job Title" onChange={(e) => handleJobTitle(e)}/>
-        <FormLabel m="5">Company Name:</FormLabel>
+        <FormLabel m="2" display="flex" justifyContent="center" alignItems="center">Company Name:</FormLabel>
         <Input m="3" type="text" placeholder="Company Name" onChange={(e) => handleCompany(e)}/>
-        <FormLabel m="5">Location:</FormLabel>
+        <FormLabel m="2" display="flex" justifyContent="center" alignItems="center">Location:</FormLabel>
         <Input m="3" type="text" placeholder="Location" onChange={(e) => handleLocation(e)}/>
-        <Button type="submit" onClick={() => storeJobData()}>Submit</Button>
       </FormControl>
-    </FormDiv>
+      <Button type="submit" height="48px" width="200px" onClick={() => storeJobData()}>Submit</Button>
+    </Container>
   )
 
 }
