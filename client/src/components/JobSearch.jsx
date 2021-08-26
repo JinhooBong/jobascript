@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment }  from 'react';
 import styled from 'styled-components';
 import JobsModal from './JobsModal.jsx';
+import Job from './Job.jsx';
 
-import { Flex, Button } from '@chakra-ui/react';
+import {
+  Container,
+  Button
+} from '@chakra-ui/react';
+
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from "@chakra-ui/react"
+
+import { SearchIcon } from '@chakra-ui/icons';
 
 const axios = require('axios');
 
@@ -31,18 +48,52 @@ const JobSearch = () => {
       })
   }
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <Flex>
-      <Button
-        onClick={() => clickSearch()}
+    // <Fragment>
+    <Container display="flex" justifyContent="center">
+      {/* <Button
+        onClick={() => {
+          clickSearch();
+        }}
         size="md"
         height="48px"
         width="200px"
+        leftIcon={<SearchIcon />}
       >
         Search Jobs
-      </Button>
-      <JobsModal jobs={jobs}/>
-    </Flex>
+      </Button> */}
+      {/* <JobsModal jobs={jobs}/> */}
+
+      <Button onClick={onOpen} leftIcon={<SearchIcon/>}>Search Jobs</Button>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader></ModalHeader>
+          <ModalBody display="flex" justifyContent="center">
+          <Button
+            onClick={() => clickSearch()}
+            size="md"
+            height="48px"
+            width="200px"
+            leftIcon={<SearchIcon />}
+          >Search</Button>
+          {jobs.map((item, i) => {
+            return <Job
+              key={i}
+              job_title={item.title}
+              companyName={item.company_name}
+              location={item.country}
+              description={item.description}
+              link={item.detail_url}
+            />
+          })}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+
+    </Container>
   )
 
 }
