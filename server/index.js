@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 
-const job = require('../database/controller/jobList.jsx');
+const addJob = require('../database/controller/jobList.jsx');
 
 const app = express();
 const PORT = 3000;
@@ -31,7 +31,7 @@ app.get('/joblist', (req, res) => {
 // this will post to the db a new job application
 app.post('/joblist', (req, res) => {
   console.log('message received', req.body);
-  let response = job.addJob(req.body);
+  let response = addJob(req.body);
   res.send(response);
 });
 

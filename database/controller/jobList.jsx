@@ -14,15 +14,4 @@ const addJob = ({ jobTitle, companyName, location, date_added }) => {
   })
 };
 
-const deleteJob = ({ jobtitle, company, location}) => {
-  Job.deleteOne({
-    job_title: jobTitle,
-    companyName: company,
-    location: location
-  });
-}
-
-module.exports = {
-  addJob: addJob,
-  deleteJob: deleteJob
-}
+module.exports = addJob;
