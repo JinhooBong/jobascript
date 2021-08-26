@@ -57,7 +57,7 @@ const ApplicationForm = ({ refreshFn }) => {
         <FormLabel m="2" display="flex" justifyContent="center" alignItems="center">Location:</FormLabel>
         <Input m="3" type="text" placeholder="Location" onChange={(e) => handleLocation(e)}/>
       </FormControl>
-      <Button type="submit" height="48px" width="200px" onClick={() => storeJobData()}>Submit</Button>
+      <Button m="5" type="submit" height="48px" width="200px" onClick={() => storeJobData()}>Submit</Button>
     </Container>
   )
 
