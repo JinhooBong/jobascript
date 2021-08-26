@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 
 // this will get all of the current jobs applied to
 app.get('/joblist', (req, res) => {
-  console.log('hellooo');
   db.collection('jobs').find().toArray()
     .then((result) => {
       res.send(result);

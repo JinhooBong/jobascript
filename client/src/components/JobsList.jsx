@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ApplicationForm from './ApplicationForm.jsx';
+import JobsApplied from './JobsApplied.jsx';
 
 const axios = require('axios');
 
@@ -18,6 +19,7 @@ const JobsList = () => {
     axios.get('/joblist')
       .then((data) => {
         console.log(data.data);
+        setJobApplicationList(data.data);
       })
       .catch((err) => {
         console.log('err', err);
@@ -26,12 +28,16 @@ const JobsList = () => {
 
   useEffect(() => {
     getJobApplied();
-  }, [jobApplicationList]);
+  }, []);
 
   return (
     <div>
       <h1>Job List Section</h1>
-
+      <ul>
+        {jobApplicationList.map((item, i) => {
+          return <JobsApplied job={item} key={i} />
+        })}
+      </ul>
       <ApplicationForm />
     </div>
   )
