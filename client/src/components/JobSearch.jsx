@@ -68,10 +68,10 @@ const JobSearch = () => {
 
       <Button onClick={onOpen} leftIcon={<SearchIcon/>}>Search Jobs</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} p="10" size="xl">
         <ModalContent>
           <ModalHeader></ModalHeader>
-          <ModalBody display="flex" justifyContent="center">
+          <ModalBody display="flex" alignItems="center" justifyContent="center" flexDirection="column">
           <Button
             onClick={() => clickSearch()}
             size="md"
@@ -79,7 +79,7 @@ const JobSearch = () => {
             width="200px"
             leftIcon={<SearchIcon />}
           >Search</Button>
-          {jobs.map((item, i) => {
+          {jobs.slice(0, 5).map((item, i) => {
             return <Job
               key={i}
               job_title={item.title}

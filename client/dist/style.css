@@ -16,3 +16,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.link {
+  color: #00A1BA;
+}
